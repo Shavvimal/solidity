@@ -1,3 +1,5 @@
+//SPDX-License-Identifier: MIT
+
 pragma solidity 0.8.17;
 
 contract MessengeboardPaywall {
@@ -9,7 +11,7 @@ contract MessengeboardPaywall {
         deployeAddress = payable(msg.sender);
     }
 
-    function setMessage(string memory newMessage) payable public {
+    function setMessage(string memory newMessage) public payable {
         if (msg.value > 1 ether) {
             message = newMessage;
             deployeAddress.transfer(msg.value);
